@@ -94,7 +94,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.title("😈🤪/ndiy diag device by TRHACKNON/n🤪😈")
+    st.title("""😈🤪
+    diy diag device by TRHACKNON
+    🤪😈""")
     st.markdown("""
     <div style="text-align:center;">
         <img src="https://f.top4top.io/p_3624iyyqs0.gif" alt="Logo" style="height:40px; margin-bottom:10px;">
