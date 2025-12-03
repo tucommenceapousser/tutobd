@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline – trhacknon</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0a0a0a;
+        color: #e6e6e6;
+        font-family: "Consolas", monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .card {
+        border: 2px solid #7b2ff7;
+        padding: 25px;
+        border-radius: 12px;
+        background: rgba(15, 15, 15, 0.85);
+        box-shadow: 0 0 20px #7b2ff7, inset 0 0 10px #000;
+        max-width: 90%;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 12px #7b2ff7; }
+        to { box-shadow: 0 0 30px #00eaff; }
+    }
+
+    .logo {
+        font-size: 32px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #7b2ff7, #00eaff);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px #7b2ff7; }
+        50% { text-shadow: -2px -2px #00eaff; }
+        100% { text-shadow: 2px 2px #7b2ff7; }
+    }
+
+    .offline-text {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .retry-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        border: 1px solid #00eaff;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #00eaff;
+        background: rgba(0, 234, 255, 0.07);
+        transition: 0.3s ease-in-out;
+    }
+
+    .retry-btn:hover {
+        background: #00eaff;
+        color: #000;
+        box-shadow: 0 0 15px #00eaff;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="logo">trhacknon</div>
+
+    <div class="offline-text">
+        <p>🚫 Vous êtes hors ligne.</p>
+        <p>Impossible de charger la valise diagnostique.</p>
+        <p>Vérifiez votre connexion et réessayez.</p>
+    </div>
+
+    <a href="/" class="retry-btn">🔄 Recharger</a>
+</div>
+
+</body>
+</html>
