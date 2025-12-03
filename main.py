@@ -1,4 +1,4 @@
-# diagnostic_valise_complete.py
+#full opensource by trhacknon
 import streamlit as st
 import os
 import serial
