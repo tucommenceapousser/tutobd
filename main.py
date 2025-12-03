@@ -17,6 +17,42 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# --- Footer design trhacknon ---
+st.markdown("""
+<style>
+/* Footer sticky en bas, style hacker trhacknon */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #101622;  /* fond sombre */
+    color: #0ff;                /* texte fluo cyan */
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-top: 2px solid #0ff; /* bordure fluo */
+    z-index: 1000;
+}
+
+/* liens fluo avec hover */
+.footer a {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.footer a:hover {
+    color: #f0f;  /* violet fluo au survol */
+    text-shadow: 0 0 5px #f0f;
+}
+</style>
+
+<div class="footer">
+    💻 Full open-source by <a href="https://github.com/trhacknon" target="_blank">trhacknon</a> | 🚀 PWA ready & offline mode
+</div>
+""", unsafe_allow_html=True)
+
 # --- META + MANIFEST ---
 st.markdown("""
 <link rel="manifest" href="/public/manifest.json">
