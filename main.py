@@ -237,8 +237,9 @@ elif choice == "Flash Firmware":
     st.header("⚡ Flash Firmware ESP32")
 
     firmware_options = {
-        "GVRET ESP32 (CAN Bus)": "https://github.com/collin80/GVRET/releases/latest/download/gvret-esp32.bin",
-        "ESP32 OBD-II basique": "https://example.com/esp32-obd.bin"
+    "esp32‑obd2 (OBD‑II adapter)": "https://github.com/LaXiS96/esp32-obd2/releases/latest/download/esp32-obd2.bin",
+    "EQM_OBDWEB (OBD → WiFi dongle)": "https://github.com/EQMOD/EQM_OBDWEB/releases/latest/download/eqm_obdweb.bin",
+    "ESP32_RET_SD (CAN logger / SavvyCAN compatible)": "https://github.com/MotorvateDIY/ESP32_RET_SD/releases/latest/download/esp32_ret_sd.bin"
     }
 
     choice_fw = st.selectbox("Choisir firmware", list(firmware_options.keys()))
