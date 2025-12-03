@@ -13,6 +13,34 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Injection de meta tags pour SEO + réseaux sociaux
+meta_tags = """
+<meta name="description" content="Valise diagnostic auto DIY - Raspberry Pi Zéro 2W, ESP32, Lecteur OBD2, avec firmwares, images et outils.">
+<meta property="og:title" content="Valise Diagnostic Auto DIY"/>
+<meta property="og:description" content="Diagnostic automobile Ford/Peugeot avec Raspberry Pi Zero 2W & ESP32."/>
+<meta property="og:image" content="https://your-site.com/preview.jpg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://your-site.com/"/>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valise Diagnostic Auto DIY">
+<meta name="twitter:description" content="OBD2, Pi Zero 2W, ESP32, firmware, outils.">
+<meta name="twitter:image" content="https://your-site.com/preview.jpg">
+"""
+
+st.markdown(f"<head>{meta_tags}</head>", unsafe_allow_html=True)
+st.markdown("""
+<style>
+/* Style type application mobile */
+.block-container {
+    padding-top: 1rem;
+}
+header, footer {
+    visibility: hidden;
+}
+</style>
+""", unsafe_allow_html=True)
+
 menu = ["Accueil", "Composants", "Firmware & Librairies", "Instructions", 
         "Scripts & Téléchargement", "Astuces & Evolutions", "Flash Firmware"]
 choice = st.sidebar.selectbox("Navigation", menu)
