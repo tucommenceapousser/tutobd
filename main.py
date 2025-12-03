@@ -1,6 +1,7 @@
 # diagnostic_valise_complete.py
 import streamlit as st
 import os
+import serial
 import zipfile
 from io import BytesIO
 
