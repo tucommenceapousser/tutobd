@@ -165,7 +165,7 @@ elif choice == "Composants":
     cols = st.columns(len(components))
     for i, c in enumerate(components):
         with cols[i]:
-            st.image(c["Image"], caption=c["Nom"], use_column_width=True)        
+            st.image(c["Image"], caption=c["Nom"], width='stretch')        
 # -------- FIRMWARE ------------
 elif choice == "Firmware & Librairies":
     st.header("📦 Firmware existants")
