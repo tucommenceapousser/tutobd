@@ -12,7 +12,7 @@ import subprocess
 
 st.set_page_config(
     page_title="Valise Diagnostic Auto Pi Zero 2W",
-    page_icon="favicon.jpg",
+    page_icon="/public/favicon.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
