@@ -5,6 +5,11 @@ import serial
 import serial.tools.list_ports
 import zipfile
 from io import BytesIO
+import streamlit as st
+from pwa import expose_pwa_files
+
+# Active le serveur PWA
+expose_pwa_files()
 
 st.set_page_config(
     page_title="Valise Diagnostic Auto Pi Zero 2W",
