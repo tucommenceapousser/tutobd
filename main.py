@@ -40,7 +40,15 @@ st.markdown(f"<head>{meta_tags}</head>", unsafe_allow_html=True)
 
 # Manifest + Service Worker
 st.markdown("""
+<meta name="theme-color" content="#101622">
+<meta property="og:title" content="OBD Smartphone App">
+<meta property="og:description" content="Diagnostique OBD pour smartphone + PWA + offline mode">
+<meta property="og:image" content="favicon.png">
+<meta property="og:type" content="website">
+
 <link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png">
+<script defer src="/pwabuilder-sw.js"></script>
 <script>
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/pwabuilder-sw.js");
