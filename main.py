@@ -88,9 +88,9 @@ Ce projet permet de créer une **valise diagnostic automobile DIY** compatible a
     # Affichage côte à côte des matériels
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("https://www.raspberrypi.com/app/uploads/2021/10/Raspberry-Pi-Zero-2-W-1.jpg", caption="Raspberry Pi Zero 2W", use_column_width=True)
+        st.image("https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg", caption="Raspberry Pi Zero 2W", use_column_width=True)
     with col2:
-        st.image("https://www.espressif.com/sites/default/files/styles/product_540x540/public/product-images/t-display-s3-front.png", caption="ESP32-S3 T-Display", use_column_width=True)
+        st.image("https://www.espressif.com/sites/default/files/dev-board/ESP32-C6-DevKitC-1_L.png", caption="ESP32-S3 T-Display", use_column_width=True)
     with col3:
         st.image("https://cdn.pixabay.com/photo/2016/03/09/09/17/car-1245717_960_720.jpg", caption="Ford Fiesta / Peugeot 406", use_column_width=True)
 
