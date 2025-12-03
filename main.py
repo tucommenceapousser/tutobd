@@ -94,7 +94,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-        st.markdown("""
+    st.markdown("""
     <div style="text-align:center;">
     😈🤪
     </div>
