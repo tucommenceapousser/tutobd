@@ -129,22 +129,43 @@ Ce projet permet de créer une **valise diagnostic automobile DIY** compatible a
 # -------- COMPOSANTS ----------
 elif choice == "Composants":
     st.header("🛠 Composants nécessaires")
+    
     components = [
-        {"Nom": "Raspberry Pi Zero 2 W", "Prix": "≈15,48 €", "Lien": "https://www.mouser.fr/ProductDetail/Raspberry-Pi/SC1146"},
-        {"Nom": "Adaptateur OBD-II USB / Bluetooth (ELM327)", "Prix": "≈10-15 €", "Lien": "https://www.amazon.fr/s?k=elm327+usb"},
-        {"Nom": "Convertisseur DC/DC 12V → 5V USB", "Prix": "≈7-10 €", "Lien": "https://www.amazon.fr/dp/B0FBQXK46N"},
-        {"Nom": "Écran TFT / OLED", "Prix": "≈10-20 €", "Lien": "https://www.amazon.fr/s?k=raspberry+pi+oled+tft"}
+        {
+            "Nom": "Raspberry Pi Zero 2 W",
+            "Prix": "≈15,48 €",
+            "Lien": "https://www.mouser.fr/ProductDetail/Raspberry-Pi/SC1146",
+            "Image": "https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg"
+        },
+        {
+            "Nom": "Adaptateur OBD-II USB / Bluetooth (ELM327)",
+            "Prix": "≈10-15 €",
+            "Lien": "https://www.amazon.fr/s?k=elm327+usb",
+            "Image": "https://images-na.ssl-images-amazon.com/images/I/71dNmOr2gyL._AC_SL1500_.jpg"
+        },
+        {
+            "Nom": "Convertisseur DC/DC 12V → 5V USB",
+            "Prix": "≈7-10 €",
+            "Lien": "https://www.amazon.fr/dp/B0FBQXK46N",
+            "Image": "https://images-na.ssl-images-amazon.com/images/I/61pKdQoNStL._AC_SL1500_.jpg"
+        },
+        {
+            "Nom": "Écran TFT / OLED",
+            "Prix": "≈10-20 €",
+            "Lien": "https://www.amazon.fr/s?k=raspberry+pi+oled+tft",
+            "Image": "https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834"
+        }
     ]
+    
+    # Affiche texte descriptif
     for c in components:
         st.markdown(f"- **{c['Nom']}** – {c['Prix']} – [Lien]({c['Lien']})")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.image("https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg", caption="Raspberry Pi Zero 2W", width='stretch')
-    with col2:
-        st.image("https://www.espressif.com/sites/default/files/dev-board/ESP32-C6-DevKitC-1_L.png", caption="ESP32-C6", width='stretch')
-    with col3:
-        st.image("https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834", caption="ESP32-S3 T-Display", width='stretch')
-        
+    
+    # Affiche images côte à côte
+    cols = st.columns(len(components))
+    for i, c in enumerate(components):
+        with cols[i]:
+            st.image(c["Image"], caption=c["Nom"], use_column_width=True)        
 # -------- FIRMWARE ------------
 elif choice == "Firmware & Librairies":
     st.header("📦 Firmware existants")
