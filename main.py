@@ -98,9 +98,7 @@ with st.sidebar:
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
-    """, unsafe_allow_html=True)
-    st.title("diy diag device by TRHACKNON")
-    st.markdown("""
+        Diy diag device by TRHACKNON
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
