@@ -84,11 +84,11 @@ Ce projet permet de créer une **valise diagnostic automobile DIY** compatible a
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg", caption="Raspberry Pi Zero 2W", use_column_width=True)
+        st.image("https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg", caption="Raspberry Pi Zero 2W", use_container_width=True)
     with col2:
-        st.image("https://www.espressif.com/sites/default/files/dev-board/ESP32-C6-DevKitC-1_L.png", caption="ESP32-C6", use_column_width=True)
+        st.image("https://www.espressif.com/sites/default/files/dev-board/ESP32-C6-DevKitC-1_L.png", caption="ESP32-C6", use_container_width=True)
     with col3:
-        st.image("https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834", caption="ESP32-S3 T-Display", use_column_width=True)
+        st.image("https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834", caption="ESP32-S3 T-Display", use_container_width=True)
 
 # -------- COMPOSANTS ----------
 elif choice == "Composants":
