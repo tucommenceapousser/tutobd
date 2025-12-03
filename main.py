@@ -22,15 +22,15 @@ st.set_page_config(
 
 # --- META + MANIFEST ---
 st.markdown("""
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/public/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/pwabuilder-sw.js')
+    navigator.serviceWorker.register('/public/pwabuilder-sw.js')
         .then(reg => console.log("SW registered", reg))
         .catch(err => console.warn("SW registration failed", err));
 }
 </script>
-<link rel="icon" href="favicon.jpg">
+<link rel="icon" href="/public/favicon.jpg">
 """, unsafe_allow_html=True)
 
 # --- META TAGS SEO + SOCIAL ---
@@ -38,14 +38,14 @@ meta_tags = """
 <meta name="description" content="Valise diagnostic auto DIY - Raspberry Pi Zéro 2W, ESP32, Lecteur OBD2, avec firmwares, images et outils.">
 <meta property="og:title" content="Valise Diagnostic Auto DIY"/>
 <meta property="og:description" content="Diagnostic automobile Ford/Peugeot avec Raspberry Pi Zero 2W & ESP32."/>
-<meta property="og:image" content="/favicon.jpg"/>
+<meta property="og:image" content="/public/favicon.jpg"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://tutobd.streamlit.app/"/>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Valise Diagnostic Auto DIY">
 <meta name="twitter:description" content="OBD2, Pi Zero 2W, ESP32, firmware, outils.">
-<meta name="twitter:image" content="/favicon.jpg">
+<meta name="twitter:image" content="/public/favicon.jpg">
 """
 
 # Injection head
@@ -56,7 +56,7 @@ st.markdown("""
 <meta name="theme-color" content="#101622">
 <meta property="og:title" content="OBD Smartphone App">
 <meta property="og:description" content="Diagnostique OBD pour smartphone + PWA + offline mode">
-<meta property="og:image" content="favicon.jpg">
+<meta property="og:image" content="/public/favicon.jpg">
 <meta property="og:type" content="website">
 """, unsafe_allow_html=True)
 
