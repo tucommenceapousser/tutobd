@@ -93,6 +93,14 @@ st.markdown("""
 <meta property="og:type" content="website">
 """, unsafe_allow_html=True)
 
+with st.sidebar:
+    st.markdown("""
+    <div style="text-align:center;">
+        <img src="https://f.top4top.io/p_3624iyyqs0.gif" alt="Logo" style="height:40px; margin-bottom:10px;">
+        <h3>Navigation</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
 # Design mobile
 st.markdown("""
 <style>
