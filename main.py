@@ -96,11 +96,11 @@ st.markdown("""
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;">
-    😈🤪
+    😈
     </div>
     ""', unsafe_allow_html=True)
     st.title("""diy diag device by TRHACKNON""")
-    st.markdown("""🤪😈""", unsafe_allow_html=True)
+    st.markdown("""😈""", unsafe_allow_html=True)
     st.markdown("""
     <div style="text-align:center;">
         <img src="https://f.top4top.io/p_3624iyyqs0.gif" alt="Logo" style="height:40px; margin-bottom:10px;">
