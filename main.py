@@ -1,5 +1,6 @@
 # full opensource by trhacknon
 import streamlit as st
+import esptool
 import os
 import serial
 import serial.tools.list_ports
