@@ -194,10 +194,12 @@ elif choice == "Composants":
             st.image(c["Image"], caption=c["Nom"], width='stretch')        
 # -------- FIRMWARE ------------
 elif choice == "Firmware & Librairies":
-    st.header("📦 Firmware existants")
+    st.header("📦 Firmwares & Librairies disponibles")
+
     st.markdown("""
-- **Python-OBD** : https://github.com/brendan-w/python-OBD  
-- **GVRET ESP32** : https://github.com/collin80/GVRET  
+- **python-OBD** — interface Python (ELM327, USB/Bluetooth) pour diagnostics OBD sur PC / Raspberry Pi. 1  
+- **esp32‑obd2** — firmware ESP32 + transceiver CAN pour connecter directement un ESP32 au bus CAN d’un véhicule. 3  
+- **id3esp32obd2** — dongle DIY ESP32 + CAN + Bluetooth + application Android, pour diagnostic/lecture via smartphone. 5  
     """)
 
 # -------- INSTRUCTIONS --------
