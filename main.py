@@ -73,11 +73,10 @@ Le flashage écrase le firmware existant.
             st.error(f"Erreur pendant le flashage : {e}")
 # --- Accueil ---
 if choice == "Accueil":
-    st.title("💻 Valise Diagnostic Auto DIY - Raspberry Pi Zero 2W")
+    st.title("💻 Valise Diagnostic Auto DIY - Raspberry Pi Zero 2W / ESP32-S3")
     st.subheader("Projet pour Ford Fiesta & Peugeot 406 Phase 2")
     st.markdown("""
-Ce projet permet de créer une **valise diagnostic automobile DIY** à base de Raspberry Pi Zero 2W,
-compatible avec des voitures récentes (Ford Fiesta) et anciennes (Peugeot 406 Phase 2 essence).
+Ce projet permet de créer une **valise diagnostic automobile DIY** compatible avec des véhicules récents (Ford Fiesta) et anciens (Peugeot 406 Phase 2 essence).
 
 **Objectifs :**
 - Lire les codes défaut moteur, transmission, ABS (si supporté)
@@ -85,8 +84,19 @@ compatible avec des voitures récentes (Ford Fiesta) et anciennes (Peugeot 406 P
 - Avoir un système évolutif et personnalisable
 - Option : multi-voitures, interface web, affichage sur écran OLED/TFT
     """)
-    st.image("https://cdn.pixabay.com/photo/2016/03/09/09/17/car-1245717_960_720.jpg", use_column_width=True)
 
+    # Affichage côte à côte des matériels
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image("https://www.raspberrypi.com/app/uploads/2021/10/Raspberry-Pi-Zero-2-W-1.jpg", caption="Raspberry Pi Zero 2W", use_column_width=True)
+    with col2:
+        st.image("https://www.espressif.com/sites/default/files/styles/product_540x540/public/product-images/t-display-s3-front.png", caption="ESP32-S3 T-Display", use_column_width=True)
+    with col3:
+        st.image("https://cdn.pixabay.com/photo/2016/03/09/09/17/car-1245717_960_720.jpg", caption="Ford Fiesta / Peugeot 406", use_column_width=True)
+
+    st.markdown("""
+💡 Ce projet est pensé pour être **évolutif** : tu peux commencer avec le Pi Zero 2W et passer plus tard à un ESP32-S3 T-Display pour une valise compacte et autonome.
+""")
 # --- Composants ---
 elif choice == "Composants":
     st.header("🛠 Composants nécessaires")
