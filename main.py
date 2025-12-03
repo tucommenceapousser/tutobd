@@ -98,13 +98,11 @@ with st.sidebar:
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
-    <div style="text-align:center; font-size:34px;">
-        Diy diag device by TRHACKNON
-    </div>
+    <h1>Diy diag device by TRHACKNON</h1>
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
-    """)
+    """, unsafe_allow_html=True)
     
     st.markdown("""
     <div style="text-align:center; margin-bottom:10px;">
