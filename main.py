@@ -141,19 +141,19 @@ elif choice == "Composants":
             "Nom": "Adaptateur OBD-II USB / Bluetooth (ELM327)",
             "Prix": "≈10-15 €",
             "Lien": "https://www.amazon.fr/s?k=elm327+usb",
-            "Image": "https://images-na.ssl-images-amazon.com/images/I/71dNmOr2gyL._AC_SL1500_.jpg"
+            "Image": "https://m.media-amazon.com/images/I/51R8JW892UL._AC_UF1000,1000_QL80_FMwebp_.jpg"
         },
         {
             "Nom": "Convertisseur DC/DC 12V → 5V USB",
             "Prix": "≈7-10 €",
             "Lien": "https://www.amazon.fr/dp/B0FBQXK46N",
-            "Image": "https://images-na.ssl-images-amazon.com/images/I/61pKdQoNStL._AC_SL1500_.jpg"
+            "Image": "https://m.media-amazon.com/images/I/618wOGPAnJL._AC_UF1000,1000_QL80_FMwebp_.jpg"
         },
         {
             "Nom": "Écran TFT / OLED",
             "Prix": "≈10-20 €",
             "Lien": "https://www.amazon.fr/s?k=raspberry+pi+oled+tft",
-            "Image": "https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834"
+            "Image": "https://m.media-amazon.com/images/I/81eTcRMsaEL._AC_UF1000,1000_QL80_FMwebp_.jpg"
         }
     ]
     
