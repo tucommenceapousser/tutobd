@@ -28,6 +28,10 @@ meta_tags = """
 <meta name="twitter:image" content="https://smarthomescene.com/wp-content/uploads/2024/10/diy-status-screen-controller-lilygo-t-display-s3-amoled-featured-image.jpg">
 """
 
+st.markdown("""
+<link rel="manifest" href="/manifest.json">
+""", unsafe_allow_html=True)
+
 st.markdown(f"<head>{meta_tags}</head>", unsafe_allow_html=True)
 st.markdown("""
 <style>
@@ -232,3 +236,27 @@ elif choice == "Astuces & Evolutions":
 - Interface embarquée sur écran TFT / OLED pour valise autonome.
 """)
     st.success("✅ Projet complet et évolutif prêt à être testé !")
+
+import streamlit as st
+import pathlib
+from fastapi import FastAPI
+from starlette.responses import FileResponse
+
+# Hack pour servir les fichiers PWA (manifest + service worker)
+def serve_pwa_files():
+    try:
+        from streamlit.web.server import Server
+        app = Server.get_current()._app
+        
+        @app.get("/manifest.json")
+        def manifest():
+            return FileResponse("manifest.json")
+
+        @app.get("/pwabuilder-sw.js")
+        def service_worker():
+            return FileResponse("pwabuilder-sw.js")
+
+    except Exception as e:
+        st.error(f"Erreur PWA: {e}")
+
+serve_pwa_files()
