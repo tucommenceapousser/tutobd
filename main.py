@@ -233,7 +233,6 @@ elif choice == "Astuces & Evolutions":
     """)
 
 # -------- FLASH FIRMWARE -------
-# -------- FLASH FIRMWARE -------
 elif choice == "Flash Firmware":
     st.header("⚡ Flash Firmware ESP32")
 
@@ -245,47 +244,60 @@ elif choice == "Flash Firmware":
     choice_fw = st.selectbox("Choisir firmware", list(firmware_options.keys()))
     st.write("Lien :", firmware_options[choice_fw])
 
-    # Ports disponibles
+    # Bouton pour actualiser les ports
+    if st.button("🔄 Actualiser les ports"):
+        st.experimental_rerun()
+
+    # Récupérer les ports disponibles
     ports = [p.device for p in serial.tools.list_ports.comports()]
+
     if not ports:
         st.warning("Aucun port série détecté. Vérifiez le branchement de l'ESP32.")
+        selected_port = None
     else:
-        selected_port = st.selectbox("Port série", ports)
-        baudrate = st.number_input("Baudrate", value=115200, step=9600)
+        # Sélection intuitive
+        default_index = 0 if len(ports) == 1 else None
+        selected_port = st.selectbox("Port série", ports, index=default_index)
 
-        if st.button("Flasher"):
-            try:
-                url = firmware_options[choice_fw]
-                fname = url.split("/")[-1]
+    # Choix du baudrate
+    baudrate = st.number_input("Baudrate", value=115200, step=9600)
 
-                # Télécharger le firmware
-                r = requests.get(url)
-                open(fname, "wb").write(r.content)
-                st.info(f"Firmware {fname} téléchargé.")
+    # Bouton pour flasher
+    if st.button("⚡ Flasher") and selected_port:
+        try:
+            url = firmware_options[choice_fw]
+            fname = url.split("/")[-1]
 
-                # Préparer la commande esptool moderne
-                cmd = [
-                    "esptool",
-                    "--chip", "esp32",
-                    "--port", selected_port,
-                    "--baud", str(baudrate),
-                    "write-flash",
-                    "-z",
-                    "0x1000",
-                    fname
-                ]
+            # Télécharger le firmware
+            r = requests.get(url)
+            with open(fname, "wb") as f:
+                f.write(r.content)
+            st.info(f"Firmware {fname} téléchargé.")
 
-                st.info("Démarrage du flash...")
-                # Lancer le processus et afficher la sortie en temps réel
-                process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-                for line in process.stdout:
-                    st.text(line.strip())
-                process.wait()
+            # Commande esptool moderne
+            cmd = [
+                "esptool",
+                "--chip", "esp32",
+                "--port", selected_port,
+                "--baud", str(baudrate),
+                "write-flash",
+                "-z",
+                "0x1000",
+                fname
+            ]
 
-                if process.returncode == 0:
-                    st.success("Flash réussi !")
-                else:
-                    st.error(f"Erreur lors du flash, code {process.returncode}")
+            st.info("Démarrage du flash...")
 
-            except Exception as e:
-                st.error(f"Exception: {e}")
+            # Exécuter le flash et afficher les logs en temps réel
+            process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            for line in process.stdout:
+                st.text(line.strip())
+            process.wait()
+
+            if process.returncode == 0:
+                st.success("Flash réussi !")
+            else:
+                st.error(f"Erreur lors du flash, code {process.returncode}")
+
+        except Exception as e:
+            st.error(f"Exception: {e}")
