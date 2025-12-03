@@ -98,7 +98,7 @@ with st.sidebar:
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
-    <h1>Diy diag device by TRHACKNON</h1>
+    <h1 style='text-align:center;'>Diy diag device by TRHACKNON</h1>
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
