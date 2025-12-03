@@ -21,17 +21,15 @@ st.set_page_config(
 )
 
 # --- META + MANIFEST ---
-st.markdown("""
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="favicon.jpg">
-
+<link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('pwabuilder-sw.js')
-    .then(reg => console.log("SW registered", reg))
-    .catch(err => console.warn("SW registration failed", err));
+    navigator.serviceWorker.register('/pwabuilder-sw.js')
+        .then(reg => console.log("SW registered", reg))
+        .catch(err => console.warn("SW registration failed", err));
 }
 </script>
+<link rel="icon" href="favicon.jpg">
 """, unsafe_allow_html=True)
 
 # --- META TAGS SEO + SOCIAL ---
@@ -57,7 +55,7 @@ st.markdown("""
 <meta name="theme-color" content="#101622">
 <meta property="og:title" content="OBD Smartphone App">
 <meta property="og:description" content="Diagnostique OBD pour smartphone + PWA + offline mode">
-<meta property="og:image" content="favicon.png">
+<meta property="og:image" content="favicon.jpg">
 <meta property="og:type" content="website">
 """, unsafe_allow_html=True)
 
