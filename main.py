@@ -94,8 +94,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.markdown("""
-    <center>😈🤪</center>
+        st.markdown("""
+    <div style="text-align:center;">
+    😈🤪
+    </div>
     """)
     st.title("""diy diag device by TRHACKNON""")
     st.markdown("""🤪😈""")
