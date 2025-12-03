@@ -2,6 +2,7 @@
 import streamlit as st
 import os
 import serial
+import serial.tools.list_ports
 import zipfile
 from io import BytesIO
 
