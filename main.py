@@ -11,10 +11,64 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Sidebar menu
-menu = ["Accueil", "Composants", "Firmware & Librairies", "Instructions", "Scripts & Téléchargement", "Astuces & Evolutions"]
+menu = ["Accueil", "Composants", "Firmware & Librairies", "Instructions", 
+        "Scripts & Téléchargement", "Astuces & Evolutions", "Flash Firmware"]
 choice = st.sidebar.selectbox("Navigation", menu)
 
+# --- Flash Firmware ---
+if choice == "Flash Firmware":
+    st.header("⚡ Flash Firmware / Microcontrôleur")
+    st.markdown("""
+Vous pouvez flasher directement les firmwares existants pour ESP32 ou tout autre microcontrôleur compatible.
+
+**Fonctionnalités :**
+- Choix du firmware (GVRET, ESP32 CAN, autres projets open-source)
+- Instructions pas à pas
+- Téléchargement automatique du firmware
+- Sélection du port série
+- Flashage sécurisé avec `esptool.py` (ESP32) ou équivalent
+    """)
+
+    # Sélection du firmware
+    firmware_options = {
+        "GVRET ESP32 (CAN Bus)": "https://github.com/collin80/GVRET/releases/latest/download/gvret-esp32.bin",
+        "ESP32 OBD-II basique": "https://github.com/user/esp32-obd-firmware/releases/latest/download/esp32-obd.bin"
+    }
+    firmware_choice = st.selectbox("Choisir le firmware à flasher", list(firmware_options.keys()))
+    st.markdown(f"**Lien du firmware :** [Télécharger]({firmware_options[firmware_choice]})")
+
+    # Sélection du port série
+    import serial.tools.list_ports
+    ports = [p.device for p in serial.tools.list_ports.comports()]
+    selected_port = st.selectbox("Sélectionner le port série", ports)
+
+    # Commande de flashage
+    st.markdown("""
+⚠️ **Attention :** Assurez-vous que l'appareil est en mode bootloader avant de flasher.  
+Le flashage écrase le firmware existant.
+    """)
+
+    if st.button("Flasher le firmware"):
+        import subprocess
+        try:
+            firmware_url = firmware_options[firmware_choice]
+            firmware_file = firmware_url.split("/")[-1]
+
+            # Télécharger le firmware
+            st.info("Téléchargement du firmware...")
+            import requests
+            r = requests.get(firmware_url)
+            with open(firmware_file, "wb") as f:
+                f.write(r.content)
+            st.success("Firmware téléchargé avec succès !")
+
+            # Flashage ESP32
+            cmd = f"esptool.py --chip esp32 --port {selected_port} write_flash -z 0x1000 {firmware_file}"
+            st.info(f"Commande de flashage exécutée : {cmd}")
+            subprocess.run(cmd, shell=True, check=True)
+            st.success("Firmware flashé avec succès !")
+        except Exception as e:
+            st.error(f"Erreur pendant le flashage : {e}")
 # --- Accueil ---
 if choice == "Accueil":
     st.title("💻 Valise Diagnostic Auto DIY - Raspberry Pi Zero 2W")
