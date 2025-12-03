@@ -94,11 +94,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.markdown(f"""
+    st.markdown("""
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
+    <div style="text-align:center; font-size:34px;">
         Diy diag device by TRHACKNON
+    </div>
     <div style="text-align:center; font-size:28px;">
         😈
     </div>
