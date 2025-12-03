@@ -233,6 +233,7 @@ elif choice == "Astuces & Evolutions":
     """)
 
 # -------- FLASH FIRMWARE -------
+# -------- FLASH FIRMWARE -------
 elif choice == "Flash Firmware":
     st.header("⚡ Flash Firmware ESP32")
 
@@ -244,19 +245,47 @@ elif choice == "Flash Firmware":
     choice_fw = st.selectbox("Choisir firmware", list(firmware_options.keys()))
     st.write("Lien :", firmware_options[choice_fw])
 
+    # Ports disponibles
     ports = [p.device for p in serial.tools.list_ports.comports()]
-    selected_port = st.selectbox("Port série", ports)
+    if not ports:
+        st.warning("Aucun port série détecté. Vérifiez le branchement de l'ESP32.")
+    else:
+        selected_port = st.selectbox("Port série", ports)
+        baudrate = st.number_input("Baudrate", value=115200, step=9600)
 
-    if st.button("Flasher"):
-        try:
-            url = firmware_options[choice_fw]
-            fname = url.split("/")[-1]
-            r = requests.get(url)
-            open(fname, "wb").write(r.content)
+        if st.button("Flasher"):
+            try:
+                url = firmware_options[choice_fw]
+                fname = url.split("/")[-1]
 
-            cmd = f"esptool.py --chip esp32 --port {selected_port} write_flash -z 0x1000 {fname}"
-            subprocess.run(cmd, shell=True)
-            st.success("Flash réussi !")
+                # Télécharger le firmware
+                r = requests.get(url)
+                open(fname, "wb").write(r.content)
+                st.info(f"Firmware {fname} téléchargé.")
 
-        except Exception as e:
-            st.error(e)
+                # Préparer la commande esptool moderne
+                cmd = [
+                    "esptool",
+                    "--chip", "esp32",
+                    "--port", selected_port,
+                    "--baud", str(baudrate),
+                    "write-flash",
+                    "-z",
+                    "0x1000",
+                    fname
+                ]
+
+                st.info("Démarrage du flash...")
+                # Lancer le processus et afficher la sortie en temps réel
+                process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                for line in process.stdout:
+                    st.text(line.strip())
+                process.wait()
+
+                if process.returncode == 0:
+                    st.success("Flash réussi !")
+                else:
+                    st.error(f"Erreur lors du flash, code {process.returncode}")
+
+            except Exception as e:
+                st.error(f"Exception: {e}")
