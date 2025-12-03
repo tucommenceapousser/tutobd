@@ -114,6 +114,13 @@ choice = st.sidebar.selectbox("Navigation", menu)
 if choice == "Accueil":
     st.title("💻 Valise Diagnostic Auto DIY - Raspberry Pi Zero 2W / ESP32-S3")
     st.subheader("Projet pour Ford Fiesta & Peugeot 406 Phase 2")
+
+    st.markdown("""
+<div style="text-align:center;">
+    <img src="https://f.top4top.io/p_3624iyyqs0.gif" alt="Trhacknon Animation" style="max-width:80%; border: 2px solid #39ff14; border-radius:10px;">
+</div>
+""", unsafe_allow_html=True)
+    
     st.markdown("""
 Ce projet permet de créer une **valise diagnostic automobile DIY** compatible avec des véhicules récents et anciens.
     """)
