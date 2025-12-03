@@ -244,25 +244,21 @@ elif choice == "Flash Firmware":
     choice_fw = st.selectbox("Choisir firmware", list(firmware_options.keys()))
     st.write("Lien :", firmware_options[choice_fw])
 
-    # Bouton pour actualiser les ports
-    if st.button("🔄 Actualiser les ports"):
-        st.experimental_rerun()
+    # Bouton pour actualiser la liste des ports
+    refresh_ports = st.button("🔄 Actualiser les ports")
 
     # Récupérer les ports disponibles
     ports = [p.device for p in serial.tools.list_ports.comports()]
-
     if not ports:
         st.warning("Aucun port série détecté. Vérifiez le branchement de l'ESP32.")
         selected_port = None
     else:
-        # Sélection intuitive
-        default_index = 0 if len(ports) == 1 else None
+        # Sélection intuitive si un seul port
+        default_index = 0 if len(ports) == 1 else 0
         selected_port = st.selectbox("Port série", ports, index=default_index)
 
-    # Choix du baudrate
     baudrate = st.number_input("Baudrate", value=115200, step=9600)
 
-    # Bouton pour flasher
     if st.button("⚡ Flasher") and selected_port:
         try:
             url = firmware_options[choice_fw]
@@ -287,8 +283,6 @@ elif choice == "Flash Firmware":
             ]
 
             st.info("Démarrage du flash...")
-
-            # Exécuter le flash et afficher les logs en temps réel
             process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
             for line in process.stdout:
                 st.text(line.strip())
