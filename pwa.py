@@ -1,34 +1,35 @@
-# pwa.py – Serveur PWA pour Streamlit
+# pwa.py – Serveur PWA pour Streamlit (compatible 2024+)
 # full opensource by trhacknon
 
 import streamlit as st
-from starlette.responses import FileResponse
+import os
 
 def expose_pwa_files():
     """
     Expose manifest.json, service worker et offline.html
-    via le serveur interne Starlette utilisé par Streamlit.
+    avec StaticFileRouter (API officielle Streamlit)
     """
     try:
-        from streamlit.web.server import Server
-        app = Server.get_current()._app   # récupération de l’app Starlette
+        from streamlit.web.server.static_file_router import StaticFileRouter
 
-        # Manifest
-        @app.get("/manifest.json")
-        def serve_manifest():
-            return FileResponse("manifest.json", media_type="application/manifest+json")
+        base_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Service worker
-        @app.get("/pwabuilder-sw.js")
-        def serve_sw():
-            return FileResponse("pwabuilder-sw.js", media_type="application/javascript")
+        StaticFileRouter.add_static_route(
+            "/manifest.json",
+            os.path.join(base_dir, "manifest.json")
+        )
 
-        # Page offline PWA
-        @app.get("/offline.html")
-        def serve_offline():
-            return FileResponse("offline.html", media_type="text/html")
+        StaticFileRouter.add_static_route(
+            "/pwabuilder-sw.js",
+            os.path.join(base_dir, "pwabuilder-sw.js")
+        )
 
-        print("[PWA] manifest.json, pwabuilder-sw.js & offline.html servis correctement.")
+        StaticFileRouter.add_static_route(
+            "/offline.html",
+            os.path.join(base_dir, "offline.html")
+        )
+
+        print("[PWA] manifest.json, service worker & offline.html exposés avec succès.")
 
     except Exception as e:
-        st.error(f"[PWA] Erreur lors de l’enregistrement des routes : {e}")
+        st.error(f"[PWA ERROR] {e}")
