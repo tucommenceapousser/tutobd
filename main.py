@@ -7,10 +7,7 @@ import zipfile
 from io import BytesIO
 import requests
 import subprocess
-from pwa import expose_pwa_files
 
-# Active le serveur PWA (NE PAS DUPLIQUER)
-expose_pwa_files()
 
 
 st.set_page_config(
