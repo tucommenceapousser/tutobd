@@ -12,13 +12,27 @@ from pwa import expose_pwa_files
 # Active le serveur PWA (NE PAS DUPLIQUER)
 expose_pwa_files()
 
-# --- CONFIG STREAMLIT ---
+
 st.set_page_config(
     page_title="Valise Diagnostic Auto Pi Zero 2W",
     page_icon="favicon.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# --- META + MANIFEST ---
+st.markdown("""
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.jpg">
+
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('pwabuilder-sw.js')
+    .then(reg => console.log("SW registered", reg))
+    .catch(err => console.warn("SW registration failed", err));
+}
+</script>
+""", unsafe_allow_html=True)
 
 # --- META TAGS SEO + SOCIAL ---
 meta_tags = """
@@ -45,15 +59,6 @@ st.markdown("""
 <meta property="og:description" content="Diagnostique OBD pour smartphone + PWA + offline mode">
 <meta property="og:image" content="favicon.png">
 <meta property="og:type" content="website">
-
-<link rel="manifest" href="/manifest.json">
-<link rel="icon" href="/favicon.png">
-<script defer src="/pwabuilder-sw.js"></script>
-<script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/pwabuilder-sw.js");
-}
-</script>
 """, unsafe_allow_html=True)
 
 # Design mobile
