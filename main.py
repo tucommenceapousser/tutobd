@@ -21,6 +21,7 @@ st.set_page_config(
 )
 
 # --- META + MANIFEST ---
+st.markdown("""
 <link rel="manifest" href="/manifest.json">
 <script>
 if ('serviceWorker' in navigator) {
