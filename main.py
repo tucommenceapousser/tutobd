@@ -8,7 +8,7 @@ from io import BytesIO
 
 st.set_page_config(
     page_title="Valise Diagnostic Auto Pi Zero 2W",
-    page_icon=":car:",
+    page_icon="favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
