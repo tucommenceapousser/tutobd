@@ -137,7 +137,14 @@ elif choice == "Composants":
     ]
     for c in components:
         st.markdown(f"- **{c['Nom']}** – {c['Prix']} – [Lien]({c['Lien']})")
-
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image("https://www.jeffgeerling.com/sites/default/files/images/jonathan-clark-pico-zero-2w-full.jpeg", caption="Raspberry Pi Zero 2W", width='stretch')
+    with col2:
+        st.image("https://www.espressif.com/sites/default/files/dev-board/ESP32-C6-DevKitC-1_L.png", caption="ESP32-C6", width='stretch')
+    with col3:
+        st.image("https://lilygo.cc/cdn/shop/products/Lilygo-T-display_5.jpg?v=1657873834", caption="ESP32-S3 T-Display", width='stretch')
+        
 # -------- FIRMWARE ------------
 elif choice == "Firmware & Librairies":
     st.header("📦 Firmware existants")
