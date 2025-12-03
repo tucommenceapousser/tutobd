@@ -18,14 +18,14 @@ meta_tags = """
 <meta name="description" content="Valise diagnostic auto DIY - Raspberry Pi Zéro 2W, ESP32, Lecteur OBD2, avec firmwares, images et outils.">
 <meta property="og:title" content="Valise Diagnostic Auto DIY"/>
 <meta property="og:description" content="Diagnostic automobile Ford/Peugeot avec Raspberry Pi Zero 2W & ESP32."/>
-<meta property="og:image" content="https://your-site.com/preview.jpg"/>
+<meta property="og:image" content="https://smarthomescene.com/wp-content/uploads/2024/10/diy-status-screen-controller-lilygo-t-display-s3-amoled-featured-image.jpg"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://your-site.com/"/>
+<meta property="og:url" content="https://tutobd.streamlit.app/"/>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Valise Diagnostic Auto DIY">
 <meta name="twitter:description" content="OBD2, Pi Zero 2W, ESP32, firmware, outils.">
-<meta name="twitter:image" content="https://your-site.com/preview.jpg">
+<meta name="twitter:image" content="https://smarthomescene.com/wp-content/uploads/2024/10/diy-status-screen-controller-lilygo-t-display-s3-amoled-featured-image.jpg">
 """
 
 st.markdown(f"<head>{meta_tags}</head>", unsafe_allow_html=True)
