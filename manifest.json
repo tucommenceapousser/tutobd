@@ -1,16 +1,21 @@
 {
-  "short_name": "tutobd",
-  "name": "tuto obd device diy",
-  "icons": [
-    {
-      "src": "favicon_512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
+  "name": "PWA Streamlit Test App",
+  "short_name": "PWAStreamlitApp",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#ff0000",
-  "background_color": "#000000",
-  "description": "Made a device for diag obd with pi zero 2w or esp32"
+  "background_color": "#ffffff",
+  "theme_color": "#0c0c0d",
+  "description": " Streamlit Test app for PWA functionality",
+  "icons": [
+    {
+      "src": "favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
