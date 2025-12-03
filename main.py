@@ -35,7 +35,7 @@ st.markdown("""
 .block-container {
     padding-top: 1rem;
 }
-header, footer {
+footer {
     visibility: hidden;
 }
 </style>
