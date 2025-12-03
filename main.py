@@ -197,10 +197,10 @@ elif choice == "Firmware & Librairies":
     st.header("📦 Firmwares & Librairies disponibles")
 
     st.markdown("""
-- **python-OBD** — interface Python (ELM327, USB/Bluetooth) pour diagnostics OBD sur PC / Raspberry Pi. 1  
-- **esp32‑obd2** — firmware ESP32 + transceiver CAN pour connecter directement un ESP32 au bus CAN d’un véhicule. 3  
-- **id3esp32obd2** — dongle DIY ESP32 + CAN + Bluetooth + application Android, pour diagnostic/lecture via smartphone. 5  
-    """)
+- **python-OBD** — interface Python (ELM327, USB/Bluetooth) pour diagnostics OBD sur PC / Raspberry Pi. [python-obd.readthedocs.io](https://python-obd.readthedocs.io/)
+- **esp32-obd2** — firmware ESP32 + transceiver CAN pour connecter directement un ESP32 au bus CAN d’un véhicule. [GitHub](https://github.com/LaXiS96/esp32-obd2)
+- **id3esp32obd2** — dongle DIY ESP32 + CAN + Bluetooth + application Android, pour diagnostic/lecture via smartphone. [GitHub](https://github.com/codingABI/id3esp32obd2)
+""")
 
 # -------- INSTRUCTIONS --------
 elif choice == "Instructions":
